@@ -101,6 +101,8 @@ namespace Astrokefir
         {
             _shipState.View.gameObject.SetActive(true);
             _shipState.View.transform.position = Vector3.zero;
+            _shipState.View.transform.rotation = Quaternion.Euler(Vector3.zero);
+            _shipState.View.GetComponent<Rigidbody2D>().Velocity = Vector3.zero;
 
             GunsLogic.ResetGuns();
         }
