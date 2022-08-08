@@ -29,8 +29,8 @@ namespace Astrokefir
             _inputActions.Enable();
 
             _battleLogic = new AstrokefirGameBattleLogic();
-            _inputActions.Player.FireBullet.performed += _battleLogic.ShipLogic.GunsLogic.OnBulletFireInput;
-            _inputActions.Player.FireLaser.performed += _battleLogic.ShipLogic.GunsLogic.OnLaserFireInput;
+            _inputActions.Player.FireBullet.performed += _battleLogic.ShipLogic.TryShootBullet;
+            _inputActions.Player.FireLaser.performed += _battleLogic.ShipLogic.TryShootLaser;
 
             EndGameMenu.gameObject.SetActive(false);
             EndGameMenu.PlayAgainButton.onClick.AddListener(_battleLogic.StartNewBattle);

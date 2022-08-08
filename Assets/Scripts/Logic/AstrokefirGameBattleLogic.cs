@@ -1,5 +1,4 @@
 ﻿using Astrokefir.Common;
-using Astrokefir.View;
 using UnityEngine;
 
 namespace Astrokefir

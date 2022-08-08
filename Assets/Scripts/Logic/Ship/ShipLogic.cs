@@ -3,6 +3,7 @@ using UnityEngine;
 using Astrokefir.Common;
 using Astrokefir.States;
 using Astrokefir.View;
+using UnityEngine.InputSystem;
 using Collider2D = CustomPhysics.Collider2D;
 using Rigidbody2D = CustomPhysics.Rigidbody2D;
 
@@ -24,9 +25,9 @@ namespace Astrokefir
 
     public class ShipLogic
     {
-        public GunsLogic GunsLogic = new GunsLogic();
         public Action OnShipDie;
         
+        private GunsLogic GunsLogic = new GunsLogic();
         private ShipState _shipState;
         private ShipControlInput _input;
         
@@ -95,6 +96,16 @@ namespace Astrokefir
                 _onShipPositionChange?.Invoke(position.ToString());
                 _onAngleChange?.Invoke(_shipState.View.transform.eulerAngles.z.ToString());
             }
+        }
+
+        public void TryShootBullet(InputAction.CallbackContext context)
+        {
+            GunsLogic.BulletFire();
+        }
+
+        public void TryShootLaser(InputAction.CallbackContext context)
+        {
+            GunsLogic.LaserFire();  
         }
 
         public void ResetShip()

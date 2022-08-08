@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using Astrokefir.Common;
 using Astrokefir.States;
 using Astrokefir.View;
@@ -111,7 +110,7 @@ namespace Astrokefir
             _bulletsGun.TimerReload = 0;
         }
 
-        public void OnBulletFireInput(InputAction.CallbackContext context)
+        public void BulletFire()
         {
             if (_bulletsGun.GetBullet(out var bullet))
             {
@@ -120,7 +119,7 @@ namespace Astrokefir
             }
         }
 
-        public void OnLaserFireInput(InputAction.CallbackContext context)
+        public void LaserFire()
         {
             if (_laserGun.Charges > 0 && _laserGun.TimerReload <= 0)
             {
