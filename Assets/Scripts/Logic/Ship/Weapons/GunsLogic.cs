@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using UnityEngine;
-using Astrokefir.Common;
+using Common;
 using Astrokefir.States;
 using Astrokefir.View;
 using CustomPhysics;

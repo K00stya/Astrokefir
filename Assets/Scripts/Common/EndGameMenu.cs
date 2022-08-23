@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Astrokefir.Common
+namespace Common
 {
     public class EndGameMenu : MonoBehaviour
     {

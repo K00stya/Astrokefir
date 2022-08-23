@@ -1,6 +1,6 @@
 ﻿using System;
 using UnityEngine;
-using Astrokefir.Common;
+using Common;
 using Astrokefir.States;
 using Astrokefir.View;
 using UnityEngine.InputSystem;

@@ -1,5 +1,6 @@
-﻿using Astrokefir.Common;
+﻿using Common;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Astrokefir
 {
@@ -22,6 +23,12 @@ namespace Astrokefir
 
             _endGameMenu = endGameMenu;
             _borders = borders;
+        }
+
+        public void SetInput(InputAction firsWeapon, InputAction secondWeapon)
+        {
+            firsWeapon.performed += ShipLogic.TryShootBullet;
+            secondWeapon.performed += ShipLogic.TryShootLaser;
         }
 
         public void UpdateInput(ShipControlInput shipControlInput)

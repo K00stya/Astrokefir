@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using CustomPhysics;
-using Astrokefir.Common;
+using Common;
 using Astrokefir.View;
 using CircleCollider2D = CustomPhysics.CircleCollider2D;
 using Rigidbody2D = CustomPhysics.Rigidbody2D;
@@ -9,13 +9,15 @@ namespace Astrokefir
 {
     public class AstrokefirCompositionRoot : MonoBehaviour
     {
-        [Header("Prefabs")] public ShipView ShipPrefab;
+        [Header("Prefabs")] 
+        public ShipView ShipPrefab;
         public BulletView BulletPrefab;
         public LaserView LaserPrefab;
         public TarelkaView TarelkaPrefab;
         public AsteroidView AsteroidPrefab;
 
-        [Header("UI")] public EndGameMenu EndGameMenu;
+        [Header("UI")] 
+        public EndGameMenu EndGameMenu;
 
         private PhysicsSimulation _physicsSimulation;
         private InputActions _inputActions;
@@ -29,12 +31,10 @@ namespace Astrokefir
             _inputActions.Enable();
 
             _battleLogic = new AstrokefirGameBattleLogic();
-            _inputActions.Player.FireBullet.performed += _battleLogic.ShipLogic.TryShootBullet;
-            _inputActions.Player.FireLaser.performed += _battleLogic.ShipLogic.TryShootLaser;
+            _battleLogic.SetInput(_inputActions.Player.FireBullet, _inputActions.Player.FireLaser);
 
             EndGameMenu.gameObject.SetActive(false);
             EndGameMenu.PlayAgainButton.onClick.AddListener(_battleLogic.StartNewBattle);
-
         }
 
         private void Start()

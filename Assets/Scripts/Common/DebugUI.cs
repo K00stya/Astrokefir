@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Astrokefir.Common
+namespace Common
 {
     public struct DebugData
     {
